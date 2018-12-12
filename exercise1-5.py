@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 ts_length = 200
 # x_values = [0]  # empty list
-a_list = [0, 0.95, 0.98]
+a_list = [0, 0.5, 0.98]
 colors = ['#0055DD', '#009933', '#BB0022']
 
 
@@ -26,13 +26,14 @@ plt.rcParams.update({'font.size': 14})
 i = 0
 for a in a_list:
     x = tseries(a)
-    plt.plot(x, linewidth=1.2, color=colors[i], label='$\\alpha = $' + str(a))
+    plt.plot(x, linewidth=1.5, color=colors[i], label='$\\alpha = $' + str(a))
     i += 1
 
 plt.grid(True, 'major', 'both', ls='--', lw=.5, c='k', alpha=.3)
 plt.xlabel('Time [t]')
 plt.ylabel('')
-plt.title('Time series for different autoregressive parameter\n$x_t = \\alpha x_{t-1} + \\varepsilon_t$')
+plt.title(
+    'Time series for different autoregressive parameter\n$x_t = \\alpha x_{t-1} + \\varepsilon_t$')
 plt.legend()
 plt.show()
 fig.savefig("tseries.pdf", bbox_inches='tight')
